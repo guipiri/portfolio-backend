@@ -13,15 +13,8 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.post("/uploadFile", upload.single("htmlInput"), async (req, res) => {
-	if (req.file) {
-		res.status(200, "aoiahao");
-		res.send("O upload ocorreu com sucesso!");
-		res.status;
-	} else {
-		res.send("Ocorreu uma falha no seu upload!");
-	}
-
+app.post("/uploadFiles", upload.array("htmlInput", 50), async (req, res) => {
+	console.log(req.files);
 	res.end();
 });
 
